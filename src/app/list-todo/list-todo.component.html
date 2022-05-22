@@ -1,0 +1,52 @@
+<div class="list-todo">
+  <ul class="list-group list-group-flush flex-list">
+    <li
+      class="list-group-item card-task"
+      *ngFor="let task of tasks"
+      [ngClass]="{ 'taskDone card-task-done' : task.state == 0, 'taskCanceled card-task-canceled' : task.state == 3 }"
+    >
+      <div class="titulo">
+        <p>
+          {{ task.title }}
+        </p>
+      </div>
+
+      <div
+        class="btn-group btn-group-sm botones"
+        role="group"
+        aria-label="First group"
+      >
+        <button
+          class="btn btn-outline-secondary"
+          title="completeTask"
+          (click)="doneTask(task)"
+        >
+          <i class="bi bi-check"></i>
+        </button>
+        <button
+          class="btn btn-outline-secondary"
+          title="cancelTask"
+          (click)="cancelTask(task)"
+        >
+          <i class="bi bi-slash-circle"></i>
+        </button>
+        <button
+          title="deleteTask"
+          (click)="deleteTask(task)"
+          class="btn btn-outline-secondary"
+        >
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+
+      <div class="fecha">
+        {{ task.date | date: "short" }}
+      </div>
+
+      <div class="estado">
+        <p *ngIf="task.state == 0">Terminada</p>
+        <p *ngIf="task.state == 3">Cancelada</p>
+      </div>
+    </li>
+  </ul>
+</div>

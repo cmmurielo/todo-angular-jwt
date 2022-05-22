@@ -1,0 +1,26 @@
+<div class="contenedor">
+
+  <div class="title">
+    <div class="titleApp">
+      <h2>ToDo - Angular 13</h2>
+    </div>
+
+    <div class="logOff">
+     <button (click)="logOff()" class="btn btn-danger logOff">Salir <i class="bi bi-box-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <div class="form">
+    <app-form-todo (taskCreated)="onTaskCreated($event)"></app-form-todo>
+  </div>
+  <div class="list">
+    <app-list-todo
+      [tasks]="arrTask"
+      (taskDeleted)="onTaskDeleted($event)"
+      (taskChangeState)="onTaskChangeState($event)"
+    ></app-list-todo>
+  </div>
+  <div class="footer">
+    Creado por <a href="https://github.com/cmmurielo" target="_blank">@cmmurielo</a>
+  </div>
+</div>

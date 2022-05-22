@@ -1,0 +1,33 @@
+<form
+  class="formulario"
+  autocomplete="off"
+  [formGroup]="formTask"
+  (ngSubmit)="save()"
+>
+  <div class="form-group">
+    <input
+      type="text"
+      id="title"
+      class="form-control"
+      placeholder="Agrega una nueva tarea..."
+      formControlName="title"
+    />
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-success"
+    value="ADD"
+    [disabled]="!formTask.valid"
+  >
+    <i class="bi bi-plus-circle-fill"></i>
+    Agregar
+  </button>
+
+  <div
+    class="error"
+    *ngIf="formTask.get('title')?.errors && formTask.get('title')?.touched"
+  >
+    Ingrese un título para la tarea con 3 o más caracteres.
+  </div>
+</form>

@@ -1,0 +1,52 @@
+.contenedor {
+  margin: 10px 10px;
+  padding: 10px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-areas:
+        "title-todo"
+    	"form-todo"
+    	"list-todo"
+        "footer-todo";
+  grid-template-columns: auto;
+  grid-template-rows: 40px 120px minmax(450px, max-content) 40px;
+  grid-gap: 10px;
+  border: 1px solid #ccc;
+
+}
+
+.title{
+  grid-area: title-todo;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.titleApp{
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.logOff {
+}
+
+.form{
+  grid-area: form-todo;
+}
+
+.list {
+  grid-area: list-todo;
+}
+
+
+.footer {
+  grid-area: footer-todo;
+  display: block;
+  justify-self: center;
+  align-self: center;
+}
+
+.footer p a {
+  text-decoration: none;
+}

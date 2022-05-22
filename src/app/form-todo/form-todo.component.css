@@ -1,0 +1,31 @@
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group {
+  width: 100%;
+}
+
+
+.formulario input {
+  font-size: large;
+  border-radius: 5px;
+}
+
+.formulario input.ng-valid.ng-touched {
+  border: 1px solid lightgreen;
+  box-shadow: 2px 2px 3px rgba(144, 238, 144, 0.5)
+}
+
+.formulario input.ng-invalid.ng-touched {
+  border: 1px solid red;
+  box-shadow: 2px 2px 3px rgba(255, 0, 0, 0.5);
+}
+
+.error {
+  text-align: center;
+  font-size: small;
+  color: red;
+}

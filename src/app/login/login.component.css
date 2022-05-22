@@ -1,0 +1,19 @@
+.contenedor {
+  width: 450px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 200px auto;
+  padding-top: 1em;
+  display: grid;
+  grid-template-rows: auto 50px;
+  grid-template-columns: 450px;
+}
+
+.form-login {
+  width: 90%;
+  grid-row: 1/2;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+}
