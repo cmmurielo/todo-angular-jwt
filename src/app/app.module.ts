@@ -14,6 +14,7 @@ import { TodoComponent } from './todo/todo.component';
 import { FormTodoComponent } from './form-todo/form-todo.component';
 import { ListTodoComponent } from './list-todo/list-todo.component';
 import {AuthInterceptor} from "./auth.interceptor";
+import { FormUserComponent } from './form-user/form-user.component';
 registerLocaleData(localEsCo);
 
 @NgModule({
@@ -22,7 +23,8 @@ registerLocaleData(localEsCo);
     LoginComponent,
     TodoComponent,
     FormTodoComponent,
-    ListTodoComponent
+    ListTodoComponent,
+    FormUserComponent
   ],
   imports: [
     BrowserModule,

@@ -5,9 +5,11 @@ export class Task {
   title: String;
   state: State;
   date: Date;
-  constructor(mTitulo: string) {
+  user: String
+  constructor(mTitulo: String, nuser: String) {
     this.title = mTitulo;
     this.state = State.INPROGRESS;
     this.date = new Date();
+    this.user = nuser;
   }
 }

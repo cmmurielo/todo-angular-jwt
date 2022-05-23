@@ -8,12 +8,16 @@ import {Router} from "@angular/router";
 })
 export class AuthService {
 
+  userLogged: string
+
   constructor(private httpClient: HttpClient, private router:Router) {
+    this.userLogged = ""
   }
 
   login(username: string, password:string) {
-    return this.httpClient.post(`${environment.apiUrl}/login`, {username:username, password:password}, {responseType:'text'}).subscribe((resp: any) => {
-      localStorage.setItem('token', resp);
+    return this.httpClient.post(`${environment.apiUrl}/login`, {username:username, password:password}, {responseType:'json'}).subscribe((resp: any) => {
+      localStorage.setItem('token', resp.token);
+      this.userLogged = resp.userId
       this.router.navigate(['todo'])
     })
   }

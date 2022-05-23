@@ -17,3 +17,10 @@
   justify-self: center;
   align-self: center;
 }
+
+.new-user {
+  grid-row: 2/3;
+  padding: 5px;
+  justify-self: center;
+  align-self: center;
+}
