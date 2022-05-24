@@ -1,4 +1,8 @@
 <div class="contenedor">
+  <div class="titulo">
+    <h1>Crear usuario</h1>
+  </div>
+
     <form
   class="formulario"
   autocomplete="off"
@@ -20,7 +24,7 @@
       type="password"
       id="password"
       class="form-control"
-      placeholder="Contrasena"
+      placeholder="Contraseña"
       formControlName="password"
     />
   </div>
@@ -39,7 +43,12 @@
     class="error"
     *ngIf="formUser.get('username')?.errors && formUser.get('username')?.touched"
   >
-    Ingrese un nombre de usuario con 6 o más caracteres.
+    Ingrese un nombre de usuario con 5 o más caracteres.
   </div>
 </form>
+
+<div class="login">
+  <a [routerLink]="['/login']" routerLinkActive="router-link-active" >Ya poseo un usuario</a>
+</div>
+
 </div>

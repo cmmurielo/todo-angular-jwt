@@ -25,24 +25,30 @@ export class TodoComponent implements OnInit {
     this.arrTask = [];
     this.tasksService
       .getList()
-      .subscribe((data: Task[]) => (this.arrTask = data));
+      .subscribe({
+        next: (data: Task[]) => this.arrTask = data,
+        error: (error) => console.log(error)
+      });
   }
 
   onTaskCreated($event: Task) {
-    this.tasksService.create($event).subscribe(() => {
-      this.ngOnInit();
+    this.tasksService.create($event).subscribe({
+      next: () => this.ngOnInit(),
+      error: (error) => console.log(error)
     });
   }
 
   onTaskChangeState($event: Task) {
-    this.tasksService.update($event).subscribe(() => {
-      this.ngOnInit();
+    this.tasksService.update($event).subscribe({
+      next: () => this.ngOnInit(),
+      error: (error) => console.log(error)
     });
   }
 
   onTaskDeleted($event: any) {
-    this.tasksService.delete($event._id).subscribe(() => {
-      this.ngOnInit();
+    this.tasksService.delete($event._id).subscribe({
+      next: () => this.ngOnInit(),
+      error: (error) => console.log(error)
     });
   }
 

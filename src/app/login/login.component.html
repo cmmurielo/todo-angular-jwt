@@ -1,4 +1,10 @@
 <div class="contenedor">
+  <div class="titulo">
+    <h1>Inicio de sesión</h1>
+  </div>
+
+  <small>user: user1, password: user1</small>
+
   <form
     class="form-login"
     autocomplete="off"
@@ -20,7 +26,7 @@
         type="password"
         id="password"
         class="form-control"
-        placeholder="Contrasena..."
+        placeholder="Contraseña..."
         formControlName="password"
       />
     </div>
@@ -31,8 +37,7 @@
       value="ADD"
       [disabled]="!formLogin.valid"
     >
-      <i class="bi bi-plus-circle-fill"></i>
-      Agregar
+      Iniciar Sesion
     </button>
   </form>
   <div class="new-user">

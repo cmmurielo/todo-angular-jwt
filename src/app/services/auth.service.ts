@@ -15,10 +15,13 @@ export class AuthService {
   }
 
   login(username: string, password:string) {
-    return this.httpClient.post(`${environment.apiUrl}/login`, {username:username, password:password}, {responseType:'json'}).subscribe((resp: any) => {
-      localStorage.setItem('token', resp.token);
-      this.userLogged = resp.userId
+    return this.httpClient.post(`${environment.apiUrl}/login`, {username:username, password:password}, {responseType:'json'}).subscribe({
+      next: (data : any) => {
+        localStorage.setItem('token', data.token);
+      this.userLogged = data.userId
       this.router.navigate(['todo'])
+      },
+      error: (error) => console.log(error)
     })
   }
 
