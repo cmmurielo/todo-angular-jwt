@@ -2,6 +2,7 @@ import { AuthService } from './../services/auth.service';
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Task} from "../models/task.model";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-form-todo',
@@ -15,7 +16,7 @@ export class FormTodoComponent implements OnInit {
   nTask: Task;
   formTask: FormGroup;
 
-  constructor(private authService:AuthService) {
+  constructor(private authService:AuthService, private router:Router) {
     this.nTask = new Task('', '');
     this.taskCreated = new EventEmitter();
     this.formTask = new FormGroup({
@@ -30,9 +31,9 @@ export class FormTodoComponent implements OnInit {
   }
 
   save() {
-    this.nTask = new Task(this.formTask.value.title, this.authService.userLogged);
-    this.taskCreated.emit(this.nTask);
-    this.formTask.reset();
+      this.nTask = new Task(this.formTask.value.title, this.authService.getCurrentUser());
+      this.taskCreated.emit(this.nTask);
+      this.formTask.reset();
   }
 
 }

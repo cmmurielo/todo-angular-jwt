@@ -9,11 +9,11 @@ import {AuthService} from "./auth.service";
   providedIn: 'root'
 })
 export class TasksService {
-  
+
   constructor(private httpClient: HttpClient, private authService:AuthService) { }
 
   getList(): Observable<Task[]> {
-    return this.httpClient.get<Task[]>(`${environment.apiUrl}/tasks/${this.authService.userLogged}`);
+    return this.httpClient.get<Task[]>(`${environment.apiUrl}/tasks/${this.authService.getCurrentUser()}`);
   }
 
   create(task: Task): Observable<Task> {
